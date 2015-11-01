@@ -1,0 +1,17 @@
+<footer class="footer" ng-show="footer.todos.length" ng-cloak>
+	<span class="todo-count"><strong>{{footer.remainingCount}}</strong>
+		<ng-pluralize count="footer.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+	</span>
+	<ul class="filters">
+		<li>
+			<a ng-class="{selected: footer.location.path() == '/'} " href="#/">All</a>
+		</li>
+		<li>
+			<a ng-class="{selected: footer.location.path() == '/active'}" href="#/active">Active</a>
+		</li>
+		<li>
+			<a ng-class="{selected: footer.location.path() == '/completed'}" href="#/completed">Completed</a>
+		</li>
+	</ul>
+	<button class="clear-completed" ng-click="footer.clearDoneTodos()" ng-show="footer.doneCount">Clear completed</button>
+</footer>

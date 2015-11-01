@@ -10,6 +10,10 @@
 		<section class="todoapp" ng-controller="App as app">
 			<todo-header on-submit="app.onSubmit(newTodo)"></todo-header>
 			<todo-list todos="app.todos" status-filter="app.statusFilter"></todo-list>
+			<todo-footer todos="app.todos" 
+				done-count="app.doneCount" 
+				remaining-count="app.remainingCount">
+			</todo-footer>
 		</section>
 		<footer class="info">
 			<p>Double-click to edit a todo</p>
