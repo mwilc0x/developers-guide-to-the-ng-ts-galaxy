@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<section class="todoapp" ng-controller="App as app">
+			<todo-header on-submit="app.onSubmit(newTodo)"></todo-header>
 		</section>
 		<footer class="info">
 			<p>Double-click to edit a todo</p>
