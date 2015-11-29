@@ -2,6 +2,6 @@
 /// <reference path="jquery/jquery.d.ts" />
 
 interface TodoItem {
-	title: string;
-	completed: boolean;
+    title: string;
+    completed: boolean;
 }
