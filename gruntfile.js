@@ -10,6 +10,6 @@ module.exports = function (grunt) {
   }
 
   function tasks() {
-    grunt.registerTask('build', []);
+    grunt.registerTask('build', ['tslint', 'browserify', 'connect:server', 'watch']);
   }
 }
