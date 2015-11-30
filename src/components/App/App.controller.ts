@@ -1,3 +1,5 @@
+import * as TodoActions from '../../actions/todos';
+
 export class App {	
 	todos: Array<any>;
 	doneCount: number;
@@ -5,15 +7,25 @@ export class App {
 	allChecked: boolean;
 	statusFilter: any;
 	location: any;
+	addTodo: Function;
 	
-	static $inject = ['$scope', '$location'];
-	constructor(private $scope: ng.IScope, private $location: ng.ILocationService) {
-		this.todos = [
-		  { title: 'complete todomvc app', completed: true }, 
-		  { title: 'write blog post', completed: false }
-	    ];
+	static $inject = [
+		'$scope', 
+		'$location', 
+		'$ngRedux'
+	];
+	
+	constructor(private $scope: ng.IScope, 
+		private $location: ng.ILocationService,
+		private $ngRedux) {
+			
+		let unsubscribe = $ngRedux.connect(
+			this.mapStateToThis.bind(this), 
+			TodoActions
+		)(this);
 		
-		$scope.$watch('app.todos', () => this.onTodos(), true);
+    $scope.$on('$destroy', unsubscribe);
+		
 		$scope.$watch('app.location.path()', path => this.onPath(path));
 
 		if ($location.path() === '') {
@@ -28,14 +40,9 @@ export class App {
 			{ completed: true } : {};
 	}
 	
-	onTodos() {
-		this.remainingCount =
-		this.todos.filter(todo => !todo.completed).length;
-		this.doneCount = this.todos.length - this.remainingCount;
-		this.allChecked = !this.remainingCount;
-	}
-	
-	onSubmit(newTodo) {
-		this.todos.push({ title: newTodo, completed: false });
-	}
+	mapStateToThis(state) {
+    return {
+      todos: state.todos
+    };
+  }
 }

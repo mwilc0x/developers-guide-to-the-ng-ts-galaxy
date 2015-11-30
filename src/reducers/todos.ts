@@ -1,10 +1,20 @@
 import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes';
 
 const initialState = [
-  {
-    text: 'Use Redux',
-    completed: false,
+  { 
+    text: 'complete todomvc app', 
+    completed: true,
     id: 0
+  },
+  { 
+    text: 'convert to redux', 
+    completed: false,
+    id: 1
+  },
+  { 
+    text: 'write blog post', 
+    completed: false,
+    id: 2
   }
 ];
 
@@ -39,7 +49,7 @@ export default function todos(state, action) {
     case COMPLETE_TODO:
       return state.map(todo =>
         todo.id === action.id ?
-          Object.assign({}, todo, { completed: !todo.completed }) :
+          Object.assign({}, todo) :
           todo
       );
 
