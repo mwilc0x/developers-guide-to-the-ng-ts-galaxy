@@ -1,6 +1,6 @@
 {
   "rules": {
-    "no-unused-variable": true,
+    "no-unused-variable": false,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "quotemark": [true, "single"],

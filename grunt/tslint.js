@@ -4,7 +4,7 @@ module.exports = function(grunt) {
       configuration: grunt.file.readJSON("tslint.json")
     },
     files: {
-      src: ['app.ts', 'components/**/*.ts']
+      src: ['src/**/*.ts']
     }
   }
 }

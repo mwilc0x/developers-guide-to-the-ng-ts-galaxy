@@ -5,7 +5,7 @@ export class TodoFooter implements ng.IDirective {
     doneCount: '=',
     remainingCount: '='
   };
-  templateUrl: string = 'components/TodoFooter/TodoFooter.template.html';
+  templateUrl: string = 'src/components/TodoFooter/TodoFooter.template.html';
   controllerAs: string = 'footer';
   bindToController: boolean = true;
   controller: Function = TodoFooterCtrl;

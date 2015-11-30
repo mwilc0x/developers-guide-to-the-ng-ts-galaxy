@@ -1,6 +1,6 @@
 module.exports = {
   scripts: {
-    files: ['app.ts', 'components/**/*.ts'],
+    files: ['app.ts', 'src/components/**/*.ts'],
     tasks: ['browserify'],
     options: {
       spawn: false,
@@ -8,7 +8,7 @@ module.exports = {
     }
   },
   html: {
-    files: ['index.html', 'components/**/*.html'],
+    files: ['index.html', 'src/components/**/*.html'],
     options: {
       spawn: false,
       livereload: true
