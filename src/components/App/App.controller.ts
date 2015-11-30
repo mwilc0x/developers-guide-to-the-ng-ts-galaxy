@@ -17,8 +17,8 @@ export class App {
 	
 	constructor(private $scope: ng.IScope, 
 		private $location: ng.ILocationService,
-		private $ngRedux) {
-			
+		private $ngRedux: ngRedux.INgRedux
+	) {		
 		let unsubscribe = $ngRedux.connect(
 			this.mapStateToThis.bind(this), 
 			TodoActions
